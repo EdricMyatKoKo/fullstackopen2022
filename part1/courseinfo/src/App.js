@@ -7,22 +7,15 @@ const App = () => {
   const exercises2 = 7
   const part3 = 'State of a component'
   const exercises3 = 14
+  const arrContent = [[part1,exercises1] ,[part2,exercises2],[part3,exercises3]]
 
   return (
     <div>
       <Header name={course} />
-
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <Content part1={part1} exercise1={exercises1} part2={part2} exercise2={exercises2} part3={part3} exercise3={exercises3}/>
+      <Total  total={exercises1 + exercises2 + exercises3}/>
     </div>
+
   )
 }
 
@@ -35,11 +28,33 @@ const Header = (props) => {
     </div>
   )
 }
-const Content = (props) => {
+const Content=(props) =>{
+return(
+  <div>
+    <Part part={props.part1}  exercise={props.exercise1} /> 
+    <Part part={props.part2}  exercise={props.exercise2} /> 
+    <Part part={props.part3}  exercise={props.exercise3} /> 
+  </div>
+)
+}
+
+const Part=(props) => {
   return (
-    <p>
-      {props.part} {props.exercises}
-    </p>
+       <p>{props.part}  {props.exercise}</p>
   )
 }
+
+const Total=(props)=>{
+  return (
+    <p>Number of exercises {props.total}</p>
+)
+}
+const ContentArray= (props) => {
+    props.map((item, index) => {
+            return( 
+              <p> {item[0]} {item[1]} </p>
+              );
+    });
+}
+
 export default App
