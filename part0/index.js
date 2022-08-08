@@ -97,7 +97,7 @@ const getFronPageHtml = (noteCount) => {
           <h1>Full stack example app</h1>
           <p>number of notes created ${noteCount}</p>
           <a href='${PATH_PREFIX}/notes'>notes</a>
-          <img src='kuva.png' width='200' />
+          <img src='fullstackdev.jpg' width='200' />
         </div>
       </body>
     </html>
